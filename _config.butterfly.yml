@@ -21,6 +21,7 @@ menu:
   Home: / || fas fa-home
   Portfolio: /portfolio/ || fas fa-folder-open
   Resume: /resume/ || fas fa-file-pdf
+  CMS: /admin/ || fas fa-key
   About Me: /about/ || fas fa-circle-user
   # About Me || fas fa-circle-user:
     # Portfolio: /portfolio/ || fas fa-folder-open
@@ -49,7 +50,7 @@ code_blocks:
 # Formal:
 #   icon: link || the description || color
 social:
-  # fab fa-github: https://github.com/xxxxx || Github || '#24292e'
+  # fab fa-github: https://github.com/grassybass || Github || '#24292e'
   # fab fa-facebook: https://www.example.com || Facebook || '#4267B2'
   # fab fa-twitter: https://www.example.com || Twitter || '#1DA1F2'
   # fab fa-instagram fa-bounce: https://www.example.com || Instagram || '#C13584'
