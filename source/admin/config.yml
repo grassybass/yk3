@@ -1,0 +1,219 @@
+search: true
+
+backend:
+  name: github
+  branch: main
+  repo: grassybass/yk3
+  base_url: https://cms.yongkhang.com
+
+
+site_url: https://new.yongkhang.com
+# logo_url: https://your-site.com/images/logo.svg
+
+publish_mode: editorial_workflow
+# media_folder: assets/uploads
+
+media_folder: 'source/assets'
+public_folder: '/assets'
+
+# media_libraries:
+  # default:
+    # config:
+      # transformations:
+        # raster_image: # original format
+          # format: webp # new format, only `webp` is supported
+          # quality: 90 # default: 85
+          # width: 2048 # default: original size
+        # svg:
+          # height: 2048 # default: original size
+          # optimize: true
+
+collections: # A list of collections the CMS should be able to edit
+  - name: 'posts' # Used in routes, ie.: /admin/collections/:slug/edit
+    label: 'Posts' # Used in the UI
+    label_singular: 'Post' # Used in the UI, ie: "New Post"
+    description: 'Blog post entries'
+    folder: 'source/_posts'
+    slug: '{{fields.slug}}' # pull data from the fields.slug
+    path: '{{fields.slug}}'
+    media_folder: '/source/_posts/{{fields.slug}}'
+    public_folder: '/cdn-cgi/image/q=medium-high,scq=50/{{fields.slug}}'
+    summary: "{{title}} -- {{date | date('YYYY/MM/DD')}}" # The summary in the CMS list view
+    create: true # Allow users to create new documents in this collection
+    preview_path: 'preview/post/{{fields.slug}}'
+    preview_path_date_field: 'updated_on'
+    editor:
+      visualEditing: true
+    view_filters:
+      - label: Posts With Index
+        field: title
+        pattern: 'This is post #'
+      - label: Posts Without Index
+        field: title
+        pattern: front matter post
+      - label: Drafts
+        pattern: true
+        field: draft
+    view_groups:
+      - label: Year
+        field: date
+        pattern: \d{4}
+      - label: Drafts
+        field: draft
+    fields: # The fields each document in this collection have
+      - { label: 'Published', name: 'published', widget: 'boolean', default: true }
+      - { label: 'Title', name: 'title', widget: 'string', tagname: 'h1' }
+      - label: 'Slug'
+        name: 'slug'
+        widget: 'string'
+      - label: 'Publish Date'
+        name: 'date'
+        widget: 'datetime'
+        format: 'YYYY-MM-DD HH:mm:ss'
+        default: '{{now}}'
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+        default: ['Event Name', 'Chara Name', 'Series Name']
+      - label: 'Update Date'
+        name: 'updated'
+        widget: 'datetime'
+        format: 'YYYY-MM-DD HH:mm:ss'
+        default: '{{now}}'
+        required: false
+      - label: 'Categories'
+        name: 'categories'
+        widget: 'list'
+        default: ['Events', 'Shootings', 'Costest']
+      - label: 'Keywords'
+        name: 'keywords'
+        widget: 'list'
+        # default: ['keywords']
+        hint: 'Unused as of now'
+        required: false
+      - label: 'Description'
+        name: 'description'
+        widget: 'string'
+        hint: 'Unused as of now'
+        required: false
+      - label: 'Top Image '
+        name: 'top_img'
+        widget: 'image'
+        # media_folder: ''
+        # public_folder: ''
+        choose_url: false
+        hint: 'aka Hero image'
+      - label: 'Comments'
+        name: 'comments'
+        widget: 'string'
+        hint: 'Unused as of now: Enable comment section or not'
+        required: false
+      - label: 'Cover Image '
+        name: 'cover'
+        widget: 'image'
+        required: true
+        # media_folder: ''
+        # public_folder: ''
+        choose_url: false
+        hint: 'aka post snippet image'
+
+      - { label: 'Body', name: 'body', widget: 'markdown', hint: 'Main content goes here.' }
+
+
+  - name: 'pages'
+    label: 'Pages'
+    files:
+      - file: 'source/about/index.md'
+        name: 'about'
+        label: 'About'
+        media_folder: 'source/about'
+        public folder: '/about'
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - label: 'Publish Date'
+            name: 'date'
+            widget: 'datetime'
+            format: 'YYYY-MM-DD HH:mm:ss'
+            default: '{{now}}'
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: 'source/portfolio/index.md'
+        name: 'portfolio'
+        label: 'Portfolio'
+        media_folder: 'source/portfolio'
+        public folder: '/portfolio'
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - label: 'Publish Date'
+            name: 'date'
+            widget: 'datetime'
+            format: 'YYYY-MM-DD HH:mm:ss'
+            default: '{{now}}'
+          - { label: "Body", name: "body", widget: "markdown" }
+
+  # - name: 'albums'
+    # label: 'Albums'
+    # label_singular: 'Album'
+    # folder: 'assets/media/albums'
+    # create: true
+    # slug: '{{slug}}'
+    # media_folder: ''
+    # public_folder: ''
+    
+    # fields:
+      # - label: 'Gallery Images'
+        # name: 'images'
+        # widget: 'list'
+        # field:
+          # label: Image
+          # name: image
+          # widget: image
+
+    
+
+#  - name: pages # a nested collection
+#    label: Pages
+#    label_singular: 'Page'
+#    folder: _pages
+#    create: true
+#    nested: { depth: 100, subfolders: false }
+#    fields:
+#      - label: Title
+#        name: title
+#        widget: string
+#      - label: Body
+#        name: body
+#        widget: markdown
+#    meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
+
+
+
+singletons:
+  - name: redirects
+    label: Redirect File (source/_redirects)
+    file: source/_redirects
+    editor:
+      preview: false
+    fields:
+      - { label: "Content", name: "body", widget: "text" }
+  - divider: true
+  - name: hexoConfig
+    label: Hexo Config (_config.yml)
+    file: _config.yml
+    editor:
+      preview: false
+    fields:
+      - { label: "Content", name: "body", widget: "text" }
+  - name: butterflyConfig
+    label: Butterfly Config (_config.butterfly.yml)
+    file: _config.butterfly.yml
+    editor:
+      preview: false
+    fields:
+      - { label: "Content", name: "body", widget: "text" }
+  - name: sveltiaConfig
+    label: Sveltia Config (source/admin/config.yml)
+    file: source/admin/config.yml
+    editor:
+      preview: false
+    fields:
+      - { label: "Content", name: "body", widget: "text" }
