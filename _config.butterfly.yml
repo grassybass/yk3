@@ -121,7 +121,7 @@ error_img:
 error_404:
   enable: true
   subtitle: "The page has been killed. You gained 404 EXP."
-  background: /img/error-page.png
+  background: /assets/meta/404.jpg
   # background: /img/error-page.png
 
 post_meta:

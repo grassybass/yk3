@@ -135,6 +135,37 @@ collections: # A list of collections the CMS should be able to edit
             widget: 'datetime'
             format: 'YYYY-MM-DD HH:mm:ss'
             default: '{{now}}'
+          - label: 'Description'
+            name: 'description'
+            widget: 'string'
+            hint: 'Unused as of now'
+            required: false
+          - label: 'Table of Content'
+            name: 'toc'
+            widget: 'boolean'
+            hint: 'Display TOC or not'
+            required: false
+          - label: 'Top Image '
+            name: 'top_img'
+            widget: 'image'
+            # media_folder: ''
+            # public_folder: ''
+            choose_url: false
+            hint: 'aka Hero image'
+          - label: 'Comments'
+            name: 'comments'
+            widget: 'string'
+            hint: 'Unused as of now: Enable comment section or not'
+            required: false
+          - label: 'Cover Image '
+            name: 'cover'
+            widget: 'image'
+            required: true
+            # media_folder: ''
+            # public_folder: ''
+            choose_url: false
+            hint: 'aka post snippet image'
+
           - { label: "Body", name: "body", widget: "markdown" }
       - file: 'source/portfolio/index.md'
         name: 'portfolio'
@@ -148,6 +179,37 @@ collections: # A list of collections the CMS should be able to edit
             widget: 'datetime'
             format: 'YYYY-MM-DD HH:mm:ss'
             default: '{{now}}'
+          - label: 'Description'
+            name: 'description'
+            widget: 'string'
+            hint: 'Unused as of now'
+            required: false
+          - label: 'Table of Content'
+            name: 'toc'
+            widget: 'boolean'
+            hint: 'Display TOC or not'
+            required: false
+          - label: 'Top Image '
+            name: 'top_img'
+            widget: 'image'
+            # media_folder: ''
+            # public_folder: ''
+            choose_url: false
+            hint: 'aka Hero image'
+          - label: 'Comments'
+            name: 'comments'
+            widget: 'string'
+            hint: 'Unused as of now: Enable comment section or not'
+            required: false
+          - label: 'Cover Image '
+            name: 'cover'
+            widget: 'image'
+            required: true
+            # media_folder: ''
+            # public_folder: ''
+            choose_url: false
+            hint: 'aka post snippet image'
+
           - { label: "Body", name: "body", widget: "markdown" }
 
   # - name: 'albums'
