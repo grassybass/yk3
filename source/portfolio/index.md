@@ -149,6 +149,8 @@ Something
 
 <!-- timeline 2012 to 2016 -->
 
+{% inlineImg /portfolio/mmu.png 50px %}
+
 ### Bachelor in Computer Science with Specialization in Games Development
 
 - Campus: Cyberjaya
