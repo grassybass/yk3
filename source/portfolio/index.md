@@ -34,9 +34,12 @@ Understand the basic workflow of Unity engine and capable of scripting the edito
 Familiar with Roblox Studio and capable of blockout a detailed game level to properly convey the design idea to artists and programmers.
 <!-- endtab -->
 
-<!-- tab Programming @fas fa-code -->
-### Something
-Something
+<!-- tab Computer Languages @fas fa-code -->
+### Programming Languages
+Worked with C++, C#, Java, Python, SQL and Lua. Familiar with general programming concepts such as OOP, data structure and tasks scheduling. Able to quickly adapt to new languages.
+
+### Serialization Languages
+Familiar with data serialization formats such as JSON, XML, YAML and TOML, comfortable reading and translating real-world data into these formats.
 <!-- endtab -->
 
 <!-- tab Productivity Software @fas fa-file-excel -->
